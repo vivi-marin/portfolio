@@ -1,0 +1,426 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --color-main-green: #9BC9B4;
+    /* Hero, Footer */
+    --color-accent-pink: #F28E8C;
+    /* Buttons, Tags */
+    --color-bg-base: #FBFBE4;
+    /* Main Background */
+    --color-text-main: #333333;
+    --color-text-sub: #666666;
+    --color-white: #FFFFFF;
+    --color-border: #CCCCCC;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 100px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--color-text-main);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.global-nav ul {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.global-nav a {
+    background-color: var(--color-accent-pink);
+    color: var(--color-white);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    background-color: var(--color-main-green);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.site-title {
+    font-family: serif;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #333;
+}
+
+/* ==========================================================================
+   Common Section Styles
+   ========================================================================== */
+.section {
+    padding: var(--spacing-lg) 0;
+}
+
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   Works Section
+   ========================================================================== */
+.works-section {
+    background-color: var(--color-white);
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.work-item {
+    text-align: left;
+}
+
+.work-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #DDD;
+    /* Dummy Image Color */
+    background-image: linear-gradient(135deg, #eee 25%, transparent 25%, transparent 50%, #eee 50%, #eee 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    margin-bottom: var(--spacing-xs);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mocking the specific images roughly */
+.work-item:nth-child(1) .work-image-placeholder {
+    background-color: #2F2E41;
+}
+
+.work-item:nth-child(2) .work-image-placeholder {
+    background-color: #E6E6E6;
+}
+
+.work-item:nth-child(3) .work-image-placeholder {
+    background-color: #FFF;
+    border: 1px solid #eee;
+}
+
+.work-item:nth-child(4) .work-image-placeholder {
+    background-color: #333;
+}
+
+.category-tag {
+    background-color: var(--color-accent-pink);
+    color: var(--color-white);
+    font-size: 10px;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.work-title {
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--color-text-main);
+    border-top: 1px solid #333;
+    padding-top: 4px;
+    display: block;
+}
+
+/* ==========================================================================
+   Branding Section
+   ========================================================================== */
+.branding-section {
+    background-color: var(--color-bg-base);
+    padding-top: 0;
+    position: relative;
+    padding-bottom: var(--spacing-xl);
+}
+
+.branding-header {
+    background-color: #F8F8DF;
+    /* Slightly different beige for top area */
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Triangle shape at bottom of header */
+.branding-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #F8F8DF;
+}
+
+.branding-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: 80px;
+}
+
+.branding-item-reverse {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+
+    .branding-item,
+    .branding-item-reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+}
+
+.branding-image {
+    flex: 1;
+}
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #333;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-placeholder-round {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    /* Semi-circle/Arc shape attempt */
+    background-color: #334;
+    border-radius: 500px 500px 0 0;
+    /* Simpler arch */
+    height: 300px;
+    background: radial-gradient(circle at center, #555, #333);
+}
+
+.branding-content {
+    flex: 1;
+    padding: var(--spacing-md);
+}
+
+.branding-title {
+    font-size: 24px;
+    margin-bottom: 4px;
+    letter-spacing: 0.1em;
+}
+
+.branding-subtitle {
+    font-size: 12px;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-md);
+    font-weight: bold;
+}
+
+.branding-desc {
+    font-size: 14px;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.btn-more {
+    background-color: var(--color-accent-pink);
+    color: var(--color-white);
+    padding: 12px 40px;
+    font-size: 12px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Profile Section
+   ========================================================================== */
+.profile-section {
+    background-color: var(--color-bg-base);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-container {
+    background-color: var(--color-white);
+    padding: 0;
+    display: flex;
+    max-width: 900px;
+}
+
+.profile-info {
+    flex: 1;
+    padding: var(--spacing-lg);
+}
+
+.profile-dl {
+    font-size: 13px;
+}
+
+.dl-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+}
+
+.dl-row dt {
+    width: 100px;
+    font-weight: bold;
+}
+
+.dl-row dd {
+    flex: 1;
+}
+
+.profile-image {
+    width: 400px;
+}
+
+.image-placeholder-square {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50" y="50" font-size="20" text-anchor="middle" dy=".3em" fill="%23fff">Profile Img</text></svg>');
+    background-size: cover;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+    background-color: var(--color-main-green);
+    padding: var(--spacing-lg) 0;
+    font-size: 12px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left .footer-nav ul {
+    margin-top: var(--spacing-sm);
+}
+
+.footer-left .footer-nav li {
+    margin-bottom: 4px;
+}
+
+.footer-left .footer-nav a {
+    text-decoration: underline;
+}
+
+.footer-right {
+    text-align: left;
+}
+
+.social-links li {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.social-links li::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #333;
+    margin-right: 8px;
+    border-radius: 50%;
+}
