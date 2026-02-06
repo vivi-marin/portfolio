@@ -257,7 +257,6 @@ img {
    Branding Section
    ========================================================================== */
 .branding-section {
-    background-color: var(--color-bg-base);
     padding-top: 0;
     position: relative;
     padding-bottom: var(--spacing-xl);
@@ -284,81 +283,108 @@ img {
     border-top: 20px solid #F8F8DF;
 }
 
+.branding-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
 .branding-item {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-    margin-bottom: 80px;
+    align-items: stretch;
+    gap: 0;
 }
 
-.branding-item-reverse {
+.branding-item:nth-child(even) {
     flex-direction: row-reverse;
-}
-
-@media (max-width: 768px) {
-
-    .branding-item,
-    .branding-item-reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--spacing-md);
-    }
 }
 
 .branding-image {
     flex: 1;
+    min-width: 0;
 }
 
-.image-placeholder {
+.branding-thumb {
     width: 100%;
-    aspect-ratio: 4/3;
-    background-color: #333;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.image-placeholder-round {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    /* Semi-circle/Arc shape attempt */
-    background-color: #334;
-    border-radius: 500px 500px 0 0;
-    /* Simpler arch */
-    height: 300px;
-    background: radial-gradient(circle at center, #555, #333);
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
 }
 
 .branding-content {
     flex: 1;
-    padding: var(--spacing-md);
+    min-width: 320px;
+    max-width: 50%;
+    background-color: #F5F5F5;
+    color: #333;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .branding-title {
     font-size: 24px;
     margin-bottom: 4px;
     letter-spacing: 0.1em;
+    color: #333;
+    font-weight: 700;
 }
 
 .branding-subtitle {
     font-size: 12px;
-    color: var(--color-text-main);
+    color: #333;
     margin-bottom: var(--spacing-md);
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .branding-desc {
     font-size: 14px;
     margin-bottom: var(--spacing-md);
     line-height: 1.8;
+    color: #333;
 }
 
-.btn-more {
-    background-color: var(--color-accent-pink);
-    color: var(--color-white);
+.branding-content .btn-more {
+    background-color: #e8a598;
+    color: #fff;
     padding: 12px 40px;
     font-size: 12px;
     border-radius: 2px;
     display: inline-block;
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .branding-item,
+    .branding-item:nth-child(even) {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .branding-image {
+        width: 100%;
+    }
+
+    .branding-thumb {
+        min-height: 220px;
+    }
+
+    .branding-content {
+        max-width: 100%;
+        min-width: 0;
+        padding: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .branding-content .btn-more {
+        align-self: center;
+    }
 }
 
 /* ==========================================================================
