@@ -5,7 +5,7 @@
    Uses common styles from style.css for header, footer, container, etc.
    ========================================================================== */
 
-.detail-main {
+main {
   padding-top: 80px;
   padding-bottom: var(--spacing-lg);
   background-color: var(--color-white);
@@ -26,13 +26,24 @@
 
 .detail-article {
   padding-top: var(--spacing-md);
+  text-align: left;
+}
+
+/* Header area: Left align and add separator */
+.detail-header {
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .detail-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
   color: var(--color-text-main);
+  line-height: 1.4;
+  text-align: left;
 }
 
 .detail-category-tag {
@@ -48,7 +59,9 @@
 .detail-date {
   font-size: 14px;
   color: var(--color-text-main);
-  margin-bottom: var(--spacing-md);
+  /* No bottom margin needed here as the container handles the spacing to the line */
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .detail-featured-image {
@@ -69,6 +82,7 @@
   color: var(--color-text-main);
   margin-bottom: var(--spacing-sm);
   line-height: 1.6;
+  text-align: right;
 }
 
 .detail-description {
